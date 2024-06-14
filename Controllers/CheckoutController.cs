@@ -19,14 +19,14 @@ namespace PetShop.Controllers
         }
 
         [HttpPost("create")]
-        [Authorize(Roles = "User,Admin")]
+        /*[Authorize(Roles = "User,Admin")]*/
         public async Task<IActionResult> Create([FromBody] CheckoutDto request)
         {
             return await _checkoutService.Create(request);
         }
 
         [HttpGet("list/{user_id}")]
-        [Authorize(Roles = "User,Admin")]
+      /*  [Authorize(Roles = "User,Admin")]*/
         public async Task<IActionResult> GetByUser([FromRoute] string user_id)
         {
             return await _checkoutService.GetByUser(user_id);

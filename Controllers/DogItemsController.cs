@@ -86,7 +86,6 @@ namespace PetShop.Controllers
         //GET: api/DogItems/get-all-dog Lay danh sach chó danh cho admin
         [HttpGet]
         [Route("get-all-admin")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllDogItemAdmin()
         {
             return await _dogitemservice.GetAllDogItemsAdmin();

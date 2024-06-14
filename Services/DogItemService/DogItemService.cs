@@ -26,7 +26,7 @@ namespace PetShop.Services.DogItemService
             List<object> responselist = new List<object>();
             dogitems.ForEach(dog =>
             {
-                var images = JsonConvert.DeserializeObject<string[]>(dog.Images);
+                /*var images = JsonConvert.DeserializeObject<string[]>(dog.Images);*/
                 object response = new
                 {
                     dog.DogItemId,
@@ -40,7 +40,7 @@ namespace PetShop.Services.DogItemService
                     dog.Origin,
                     dog.HealthStatus,
                     dog.Description,
-                    Images = images,
+                    dog.Images,
                     dog.CreateAt,
                     dog.UpdatedAt,
                     dog.IsInStock,
@@ -104,7 +104,7 @@ namespace PetShop.Services.DogItemService
         {
             var dogitem = await _context.DogItem.Include(d => d.Species).FirstOrDefaultAsync(x => x.DogItemId == id);
             if (dogitem is null || dogitem.IsDeleted == true) return ResponseHelper.NotFound();
-            var Images = JsonConvert.DeserializeObject<List<string>>(dogitem.Images);
+           // var Images = JsonConvert.DeserializeObject<List<string>>(dogitem.Images);
             return ResponseHelper.Ok(new
             {
                 dogitem.DogItemId,
@@ -117,7 +117,7 @@ namespace PetShop.Services.DogItemService
                 dogitem.Origin,
                 dogitem.HealthStatus,
                 dogitem.Description,
-                Images,
+                dogitem.Images,
                 dogitem.CreateAt,
                 dogitem.UpdatedAt,
                 dogitem.IsInStock,
@@ -149,7 +149,7 @@ namespace PetShop.Services.DogItemService
             {
                 return ResponseHelper.BadRequest("Không thể cập nhật. Vui lòng thử lại");
             }
-            var Images = JsonConvert.DeserializeObject<List<string>>(dogitem.Images);
+         //   var Images = JsonConvert.DeserializeObject<List<string>>(dogitem.Images);
             return ResponseHelper.Ok(new
             {
                 dogitem.DogItemId,
@@ -162,7 +162,7 @@ namespace PetShop.Services.DogItemService
                 dogitem.Origin,
                 dogitem.HealthStatus,
                 dogitem.Description,
-                Images,
+                dogitem.Images,
                 dogitem.CreateAt,
                 dogitem.UpdatedAt,
                 dogitem.IsInStock,
@@ -208,7 +208,7 @@ namespace PetShop.Services.DogItemService
             List<object> responselist = new List<object>();
             dogitems.ForEach(async dog =>
             {
-                var images = JsonConvert.DeserializeObject<string[]>(dog.Images);
+                var images = dog.Images;
                 if (dog.IsDeleted == null)
                 {
                     dog.IsDeleted = false;
@@ -273,11 +273,11 @@ namespace PetShop.Services.DogItemService
 
         public async Task<IActionResult> GetAllDog(string type)
         {
-            var dogitems = await _context.DogItem.Include(d => d.Species).Where(d => d.IsDeleted != true && type==d.Type).ToListAsync();
+            var dogitems = await _context.DogItem.Include(d => d.Species).Where(d => type==d.Type).ToListAsync();
             List<object> responselist = new List<object>();
             dogitems.ForEach(dog =>
             {
-                var images = JsonConvert.DeserializeObject<string[]>(dog.Images);
+                /*var images = JsonConvert.DeserializeObject<string[]>(dog.Images);*/
                 object response = new
                 {
                     dog.DogItemId,
@@ -291,7 +291,7 @@ namespace PetShop.Services.DogItemService
                     dog.Origin,
                     dog.HealthStatus,
                     dog.Description,
-                    Images = images,
+                  /*  Images = images,*/
                     dog.CreateAt,
                     dog.UpdatedAt,
                     dog.IsInStock,

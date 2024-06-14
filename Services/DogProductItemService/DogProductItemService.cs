@@ -50,7 +50,7 @@ namespace PetShop.Services.DogProductItemService
                 IsInStock = true
             };
             DogProductItemResponse map = _mapper.Map<DogProductItemResponse>(newDogProductItem);
-            map.Images = JsonConvert.DeserializeObject<string[]>(newDogProductItem.Images);
+            map.Images =newDogProductItem.Images;
             await _context.AddAsync(newDogProductItem);
             await _context.SaveChangesAsync();
             return map;
@@ -73,7 +73,7 @@ namespace PetShop.Services.DogProductItemService
                 newDogProductItem.IsInStock = dogProductItemDto.IsInStock;
                 await _context.SaveChangesAsync();
                 DogProductItemResponse response = _mapper.Map<DogProductItemResponse>(newDogProductItem);
-                response.Images = JsonConvert.DeserializeObject<string[]>(newDogProductItem.Images);
+                response.Images =newDogProductItem.Images;
                 return response;
             }
             
@@ -99,7 +99,9 @@ namespace PetShop.Services.DogProductItemService
             var dogProductItem = await _dbset.SingleOrDefaultAsync(product => product.DogProductItemId == id);
             var dogproductmap = _mapper.Map<DogProductItemResponse>(dogProductItem);
             dogproductmap.DogProductItemId = (int)dogProductItem.DogProductItemId;
-            dogproductmap.Images = JsonConvert.DeserializeObject<string[]>(dogProductItem.Images);
+            // dogproductmap.Images = JsonConvert.DeserializeObject<string[]>(dogProductItem.Images);
+            dogproductmap.Images = dogProductItem.Images;
+
             if (dogProductItem != null)
             {
                 return dogproductmap;
@@ -114,7 +116,7 @@ namespace PetShop.Services.DogProductItemService
             items.ForEach(dogProductItem =>
             {
                 DogProductItemResponse dogproducts = _mapper.Map<DogProductItemResponse>(dogProductItem);
-                dogproducts.Images = JsonConvert.DeserializeObject<string[]>(dogProductItem.Images);
+                dogproducts.Images = dogProductItem.Images;
 
                 responselist.Add(dogproducts);
             });
@@ -128,7 +130,7 @@ namespace PetShop.Services.DogProductItemService
             items.ForEach(dogProductItem =>
             {
                 DogProductItemResponse dogproducts = _mapper.Map<DogProductItemResponse>(dogProductItem);
-                dogproducts.Images = JsonConvert.DeserializeObject<string[]>(dogProductItem.Images);
+                dogproducts.Images =  dogProductItem.Images; 
 
                 responselist.Add(dogproducts);
             });

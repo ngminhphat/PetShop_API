@@ -26,6 +26,6 @@ namespace PetShop.DTOs
         public int price { get; set; }
         public int stock { get; set; }
         public int? totalPrice { get; set; }
-        public string[] images { get; set; }
+   /*     public string[] images { get; set; }*/
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetShop.Data;
 
@@ -11,9 +12,10 @@ using PetShop.Data;
 namespace PetShop.Migrations
 {
     [DbContext(typeof(PetShopDbContext))]
-    partial class PetShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240608094345_data1")]
+    partial class data1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -604,13 +606,13 @@ namespace PetShop.Migrations
                             Description = "Friendly and playful dog.",
                             DogName = "Buddy",
                             DogSpeciesId = 1,
-                            HealthStatus = "Đã tiêm vacxin",
+                            HealthStatus = "Healthy",
                             Images = "buddy.jpg",
                             IsDeleted = false,
                             IsInStock = true,
-                            Origin = "Mỹ",
+                            Origin = "United States",
                             Price = 500,
-                            Sex = "Đực",
+                            Sex = "Male",
                             Type = "Labrador"
                         },
                         new
@@ -621,82 +623,14 @@ namespace PetShop.Migrations
                             Description = "Intelligent and loyal companion.",
                             DogName = "Max",
                             DogSpeciesId = 1,
-                            HealthStatus = "Đã tiêm vacxin",
+                            HealthStatus = "Vaccinated",
                             Images = "max.jpg",
                             IsDeleted = false,
                             IsInStock = true,
-                            Origin = "Đức",
+                            Origin = "Germany",
                             Price = 550,
-                            Sex = "Đực",
-                            Type = "German Shepherd"
-                        },
-                        new
-                        {
-                            DogItemId = 3,
-                            Age = 1,
-                            Color = "Gray",
-                            Description = "Thông minh và lanh lợi",
-                            DogName = "Bull ",
-                            DogSpeciesId = 4,
-                            HealthStatus = "Đã tiêm vacxin",
-                            Images = "bull.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            Origin = "xứ Wales thuộc Vương quốc Anh",
-                            Price = 600,
-                            Sex = "Cái",
-                            Type = "Chó chăn gia súc nhỏ"
-                        },
-                        new
-                        {
-                            DogItemId = 4,
-                            Age = 2,
-                            Color = "Black",
-                            Description = "Thông minh ,lanh lợi,hoạt bát",
-                            DogName = "Bill ",
-                            DogSpeciesId = 8,
-                            HealthStatus = "Đã tiêm vacxin",
-                            Images = "Bill.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            Origin = "Tây Âu",
-                            Price = 650,
-                            Sex = "Female",
-                            Type = "Chó săn vịt"
-                        },
-                        new
-                        {
-                            DogItemId = 5,
-                            Age = 3,
-                            Color = "Gray and white",
-                            Description = "Thông minh,cảnh giác,hiếu động",
-                            DogName = "Bule ",
-                            DogSpeciesId = 3,
-                            HealthStatus = "Đã tiêm vacxin",
-                            Images = "Bule.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            Origin = "Nga",
-                            Price = 500,
                             Sex = "Male",
-                            Type = "Chó kéo xe"
-                        },
-                        new
-                        {
-                            DogItemId = 6,
-                            Age = 1,
-                            Color = "Black and dark",
-                            Description = "Bạo dạn,cảnh giác",
-                            DogName = "Kilu",
-                            DogSpeciesId = 10,
-                            HealthStatus = "Đã tiêm vacxin,khỏe mạnh",
-                            Images = "Kilu.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            Origin = "Nhật bản",
-                            Price = 600,
-                            Sex = "Female",
-                            Type = "Chó cảnh"
+                            Type = "German Shepherd"
                         });
                 });
 
@@ -769,54 +703,6 @@ namespace PetShop.Migrations
                             ItemName = "Dog Bed",
                             Price = 50,
                             Quantity = 30
-                        },
-                        new
-                        {
-                            DogProductItemId = 3,
-                            Category = "Furniture",
-                            Description = "một cái bát giúp cho chó được vệ sinh hơn",
-                            Images = "Dog Bowls.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            ItemName = "Bát uống nước",
-                            Price = 100,
-                            Quantity = 40
-                        },
-                        new
-                        {
-                            DogProductItemId = 4,
-                            Category = "Accessories",
-                            Description = "Một phụ kiện cho chó",
-                            Images = "DOG COLLAR.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            ItemName = "Nón cute",
-                            Price = 120,
-                            Quantity = 41
-                        },
-                        new
-                        {
-                            DogProductItemId = 5,
-                            Category = "Accessories",
-                            Description = "giúp chú chó xin xắn hơn",
-                            Images = "Pet clothing.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            ItemName = "Quần áo cho chó",
-                            Price = 100,
-                            Quantity = 30
-                        },
-                        new
-                        {
-                            DogProductItemId = 6,
-                            Category = "Furniture",
-                            Description = "một cái lồng để nuôi chó",
-                            Images = "dog cage.jpg",
-                            IsDeleted = false,
-                            IsInStock = true,
-                            ItemName = "Lồng chó",
-                            Price = 150,
-                            Quantity = 10
                         });
                 });
 
@@ -849,7 +735,7 @@ namespace PetShop.Migrations
                         new
                         {
                             DogSpeciesId = 1,
-                            DogSpeciesName = " Golden Retriever"
+                            DogSpeciesName = "Golden Retriever"
                         },
                         new
                         {
@@ -935,6 +821,11 @@ namespace PetShop.Migrations
                         {
                             DogSpeciesId = 18,
                             DogSpeciesName = "Đồ cho chó"
+                        },
+                        new
+                        {
+                            DogSpeciesId = 19,
+                            DogSpeciesName = "Đồ cho mèo"
                         });
                 });
 
